@@ -1,9 +1,25 @@
-# Demo Roguelike
+# FLUX (SDL Version)
+**F**ree pasca**L** rog**U**elike e**X**ample
 
-This is a hobby project of mine to create a small roguelike from scratch. The technical targets that I set myself are:
+![Free Pascal](https://img.shields.io/badge/Free%20Pascal-v3.0.4-blue) 
 
-  - First iteration runs on the console
-  - Compiles for Windows and GNU/Linux
-  - Second iteration runs with minimal dependencies (SDL2)
-  - All code written without using third-party libraries
-  - Small binary (before content is added, ideally less than 1mb)
+FLUX is a small hobby project to create a basic roguelike, it builds on the terminal version at https://github.com/cyberfilth/FLUX/ and includes the following basic features;
+
+ - A randomly generated dungeon
+ - Should run on GNU/Linux and Windows
+ - Small, native binary under 1mb in size
+ 
+![Dungeon screenshot](screenshot1.png)
+
+![Cave screenshot](screenshot2.png)
+
+The code is released into the public domain, feel free to use it or modify it in any way you choose.
+
+![Public Domain](https://img.shields.io/github/license/cyberfilth/FLUX)
+
+## documentation
+All code has been heavily commented so that you can generate documentation using PasDoc. Navigate to the source directory and create a folder called docs (or whatever you want to call it), then run the following commands.
+
+```mkdir docs/
+pasdoc *.pas --output docs/
+```
