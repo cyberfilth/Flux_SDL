@@ -451,10 +451,9 @@ begin
   floorRect.x := mapToScreen(c);
   floorRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(floorTexture, maparea[r][c].hiR,
-      maparea[r][c].hiG, maparea[r][c].hiB)
+    SDL_SetTextureColorMod(floorTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(floorTexture, 69, 73, 74);
+    SDL_SetTextureColorMod(floorTexture, TEALdarkR, TEALdarkG, TEALdarkB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @floorRect);
   SDL_RenderCopy(main.sdlRenderer, floorTexture, @floorRect, nil);
@@ -482,7 +481,7 @@ begin
   if (hiDef = 1) then
     SDL_SetTextureColorMod(floorTexture, ORANGEhiR, ORANGEhiG, ORANGEhiB)
   else
-    SDL_SetTextureColorMod(floorTexture, ORANGEdirtR, ORANGEdirtG, ORANGEdirtB);
+    SDL_SetTextureColorMod(floorTexture, ORANGEdarkR, ORANGEdarkG, ORANGEdarkB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @floorRect);
   SDL_RenderCopy(main.sdlRenderer, floorTexture, @floorRect, nil);
@@ -494,11 +493,9 @@ begin
   aRect.x := mapToScreen(c);
   aRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(aTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(aTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(aTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(aTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @aRect);
   SDL_RenderCopy(main.sdlRenderer, aTexture, @aRect, nil);
@@ -510,11 +507,9 @@ begin
   bRect.x := mapToScreen(c);
   bRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(bTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(bTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(bTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(bTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @bRect);
   SDL_RenderCopy(main.sdlRenderer, bTexture, @bRect, nil);
@@ -526,11 +521,9 @@ begin
   cRect.x := mapToScreen(c);
   cRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(cTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(cTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(cTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(cTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @cRect);
   SDL_RenderCopy(main.sdlRenderer, cTexture, @cRect, nil);
@@ -542,11 +535,9 @@ begin
   dRect.x := mapToScreen(c);
   dRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(dTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(dTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(dTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(dTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @dRect);
   SDL_RenderCopy(main.sdlRenderer, dTexture, @dRect, nil);
@@ -558,11 +549,9 @@ begin
   eRect.x := mapToScreen(c);
   eRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(eTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(eTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(eTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(eTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @eRect);
   SDL_RenderCopy(main.sdlRenderer, eTexture, @eRect, nil);
@@ -574,11 +563,9 @@ begin
   fRect.x := mapToScreen(c);
   fRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(fTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(fTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(fTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(fTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @fRect);
   SDL_RenderCopy(main.sdlRenderer, fTexture, @fRect, nil);
@@ -590,11 +577,9 @@ begin
   gRect.x := mapToScreen(c);
   gRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(gTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(gTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(gTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(gTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @gRect);
   SDL_RenderCopy(main.sdlRenderer, gTexture, @gRect, nil);
@@ -606,11 +591,9 @@ begin
   hRect.x := mapToScreen(c);
   hRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(hTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(hTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(hTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(hTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @hRect);
   SDL_RenderCopy(main.sdlRenderer, hTexture, @hRect, nil);
@@ -622,11 +605,9 @@ begin
   iRect.x := mapToScreen(c);
   iRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(iTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(iTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(iTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(iTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @iRect);
   SDL_RenderCopy(main.sdlRenderer, iTexture, @iRect, nil);
@@ -638,11 +619,9 @@ begin
   jRect.x := mapToScreen(c);
   jRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(jTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(jTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(jTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(jTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @jRect);
   SDL_RenderCopy(main.sdlRenderer, jTexture, @jRect, nil);
@@ -654,11 +633,9 @@ begin
   kRect.x := mapToScreen(c);
   kRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(kTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(kTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(kTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(kTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @kRect);
   SDL_RenderCopy(main.sdlRenderer, kTexture, @kRect, nil);
@@ -670,11 +647,9 @@ begin
   lRect.x := mapToScreen(c);
   lRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(lTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(lTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(lTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(lTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @lRect);
   SDL_RenderCopy(main.sdlRenderer, lTexture, @lRect, nil);
@@ -686,11 +661,9 @@ begin
   mRect.x := mapToScreen(c);
   mRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(mTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(mTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(mTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(mTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @mRect);
   SDL_RenderCopy(main.sdlRenderer, mTexture, @mRect, nil);
@@ -702,11 +675,9 @@ begin
   nRect.x := mapToScreen(c);
   nRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(nTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(nTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(nTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(nTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @nRect);
   SDL_RenderCopy(main.sdlRenderer, nTexture, @nRect, nil);
@@ -718,11 +689,9 @@ begin
   oRect.x := mapToScreen(c);
   oRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(oTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(oTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(oTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(oTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @oRect);
   SDL_RenderCopy(main.sdlRenderer, oTexture, @oRect, nil);
@@ -734,11 +703,9 @@ begin
   pRect.x := mapToScreen(c);
   pRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(pTexture, maparea[r][c].hiR, maparea[r][c].hiG,
-      maparea[r][c].hiB)
+    SDL_SetTextureColorMod(pTexture, TEALhiR, TEALhiG, TEALhiB)
   else
-    SDL_SetTextureColorMod(pTexture, maparea[r][c].defR, maparea[r][c].defG,
-      maparea[r][c].defB);
+    SDL_SetTextureColorMod(pTexture, TEALdefR, TEALdefG, TEALdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @pRect);
   SDL_RenderCopy(main.sdlRenderer, pTexture, @pRect, nil);
@@ -855,8 +822,8 @@ var
   id_int: smallint;
 begin
   // Generate a dungeon
-  cave.generate;
-  //dungeon.generate;
+  //cave.generate;
+  dungeon.generate;
   id_int := 0;
   for r := 1 to globalutils.MAXROWS do
   begin

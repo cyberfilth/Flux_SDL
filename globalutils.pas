@@ -16,9 +16,25 @@ const
   MAXROWS = 38;
   (* Colours - Highlight and default colours *)
   // Orange
-  ORANGEhiR = 213; ORANGEhiG = 97; ORANGEhiB = 0;
-  ORANGEdefR = 174; ORANGEdefG = 79; ORANGEdefB = 0;
-  ORANGEdirtR = 132; ORANGEdirtG = 60; ORANGEdirtB = 0;
+  ORANGEhiR = 213;
+  ORANGEhiG = 97;
+  ORANGEhiB = 0;
+  ORANGEdefR = 174;
+  ORANGEdefG = 79;
+  ORANGEdefB = 0;
+  ORANGEdarkR = 132;
+  ORANGEdarkG = 60;
+  ORANGEdarkB = 0;
+  // Teal
+  TEALhiR = 151;
+  TEALhiG = 222;
+  TEALhiB = 215;
+  TEALdefR = 0;
+  TEALdefG = 104;
+  TEALdefB = 104;
+  TEALdarkR = 0;
+  TEALdarkG = 79;
+  TEALdarkB = 79;
 
 var
   dungeonArray: array[1..MAXROWS, 1..MAXCOLUMNS] of char;
@@ -38,4 +54,3 @@ begin
 end;
 
 end.
-
