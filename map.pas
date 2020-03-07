@@ -54,6 +54,9 @@ var
   jRect, kRect, lRect, mRect, nRect, oRect, pRect, floorRect, rockRect: TSDL_Rect;
   (* Game map array *)
   maparea: array[1..MAXROWS, 1..MAXCOLUMNS] of tile;
+  (* TESTING - Write dungeon to text file *)
+  filename: ShortString;
+  myfile: Text;
 
 (* Players Field of View *)
 procedure FOV(x, y: smallint);
@@ -823,6 +826,8 @@ begin
     'O': drawO(c, r, hiDef);
     'P': drawP(c, r, hiDef);
     '#': drawRock(c, r, hiDef);
+    else
+      drawRock(c, r, hiDef);
   end;
 end;
 
@@ -833,8 +838,8 @@ var
   id_int: smallint;
 begin
   // Generate a dungeon
-  cave.generate;
-  //dungeon.generate;
+  //cave.generate;
+  dungeon.generate;
   id_int := 0;
   for r := 1 to globalutils.MAXROWS do
   begin
@@ -856,6 +861,22 @@ begin
         maparea[r][c].blocks := False;
     end;
   end;
+  /////////////////////////////
+  // Write map to text file for testing
+  filename := 'output_map.txt';
+  AssignFile(myfile, filename);
+  rewrite(myfile);
+  for r := 1 to MAXROWS do
+  begin
+    for c := 1 to MAXCOLUMNS do
+    begin
+      Write(myfile, maparea[r][c].glyph);
+    end;
+    Write(myfile, sLineBreak);
+  end;
+  closeFile(myfile);
+  //////////////////////////////
+
 end;
 
 function player_can_move(checkX, checkY: smallint): boolean;
