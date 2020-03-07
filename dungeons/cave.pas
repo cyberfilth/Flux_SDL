@@ -7,7 +7,7 @@ unit cave;
 interface
 
 uses
-  SysUtils, globalutils;
+  SysUtils, globalutils, map;
 
 type
   coordinates = record
@@ -304,8 +304,8 @@ begin
   createCorridor(centreList[p].x, centreList[p].y, centreList[t].x,
     centreList[t].y);
   // set player start coordinates
-  startX := centreList[1].x;
-  startY := centreList[1].y;
+  map.startX := centreList[1].x;
+  map.startY := centreList[1].y;
 
 
   /////////////////////////////

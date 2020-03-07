@@ -7,7 +7,7 @@ unit dungeon;
 interface
 
 uses
-  SysUtils, process_dungeon, globalutils;
+  SysUtils, process_dungeon, globalutils, map;
 
 type
   coordinates = record
@@ -18,15 +18,15 @@ var
   r, c, i, p, t, listLength, firstHalf, lastHalf: smallint;
   dungeonArray: array[1..globalutils.MAXROWS, 1..globalutils.MAXCOLUMNS] of char;
   totalRooms, roomSquare: smallint;
-  (* Player starting position *)
-  startX, startY: smallint;
   (* start creating corridors once this rises above 1 *)
   roomCounter: smallint;
   (* list of coordinates of centre of each room *)
   centreList: array of coordinates;
+  (* Player starting position *)
+  startX, startY: smallint;
   (* TESTING - Write dungeon to text file *)
-  filename:ShortString;
-  myfile: text;
+  filename: ShortString;
+  myfile: Text;
 
 (* Carve a horizontal tunnel *)
 procedure carveHorizontally(x1, x2, y: smallint);
@@ -227,35 +227,26 @@ begin
   createCorridor(centreList[p].x, centreList[p].y, centreList[t].x,
     centreList[t].y);
   // set player start coordinates
-  startX := centreList[1].x;
-  startY := centreList[1].y;
+  map.startX := centreList[1].x;
+  map.startY := centreList[1].y;
 
- /////////////////////////////
- // Write map to text file for testing
-  filename:='output_dungeon.txt';
+  /////////////////////////////
+  // Write map to text file for testing
+  filename := 'output_dungeon.txt';
   AssignFile(myfile, filename);
-   rewrite(myfile);
-   for r := 1 to MAXROWS do
+  rewrite(myfile);
+  for r := 1 to MAXROWS do
   begin
     for c := 1 to MAXCOLUMNS do
     begin
-   write(myfile,dungeonArray[r][c]);
-   end;
-    write(myfile, sLineBreak);
+      Write(myfile, dungeonArray[r][c]);
     end;
-   closeFile(myfile);
+    Write(myfile, sLineBreak);
+  end;
+  closeFile(myfile);
   //////////////////////////////
 
   process_dungeon.prettify;
-
- // Update the original dungeon
-  //for r := 1 to globalutils.MAXROWS do
-  //begin
-  //  for c := 1 to globalutils.MAXCOLUMNS do
-  //  begin
-  //    globalutils.dungeonArray[r][c] := dungeonArray[r][c];
-  //  end;
-  //end;
 end;
 
 end.

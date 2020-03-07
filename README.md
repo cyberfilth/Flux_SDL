@@ -23,3 +23,4 @@ Navigate to the source directory and create a folder called docs (or whatever yo
 mkdir docs/
 pasdoc *.pas --output docs/
 ```
+

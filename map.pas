@@ -54,9 +54,8 @@ var
   jRect, kRect, lRect, mRect, nRect, oRect, pRect, floorRect, rockRect: TSDL_Rect;
   (* Game map array *)
   maparea: array[1..MAXROWS, 1..MAXCOLUMNS] of tile;
-  (* TESTING - Write dungeon to text file *)
-  filename: ShortString;
-  myfile: Text;
+  (* Player starting position *)
+  startX, startY: smallint;
 
 (* Players Field of View *)
 procedure FOV(x, y: smallint);
@@ -137,12 +136,17 @@ begin
       end;
     end;
     Inc(visID);
-    drawTile(x, y, 1);
-    maparea[y][x].Visible := True;
-    maparea[y][x].discovered := True;
-    updateVisibleTiles(visID, y, x);
-    if (maparea[y][x].blocks = True) then
-      exit;
+    (* Check that we are not searching out of bounds of map *)
+    if (x >= 1) and (x <= globalutils.MAXCOLUMNS) and (y >= 1) and
+      (y <= globalutils.MAXROWS) then
+    begin
+      drawTile(x, y, 1);
+      maparea[y][x].Visible := True;
+      maparea[y][x].discovered := True;
+      updateVisibleTiles(visID, y, x);
+      if (maparea[y][x].blocks = True) then
+        exit;
+    end;
   end;
 end;
 
@@ -838,8 +842,8 @@ var
   id_int: smallint;
 begin
   // Generate a dungeon
-  //cave.generate;
-  dungeon.generate;
+  cave.generate;
+  //dungeon.generate;
   id_int := 0;
   for r := 1 to globalutils.MAXROWS do
   begin
@@ -861,22 +865,6 @@ begin
         maparea[r][c].blocks := False;
     end;
   end;
-  /////////////////////////////
-  // Write map to text file for testing
-  filename := 'output_map.txt';
-  AssignFile(myfile, filename);
-  rewrite(myfile);
-  for r := 1 to MAXROWS do
-  begin
-    for c := 1 to MAXCOLUMNS do
-    begin
-      Write(myfile, maparea[r][c].glyph);
-    end;
-    Write(myfile, sLineBreak);
-  end;
-  closeFile(myfile);
-  //////////////////////////////
-
 end;
 
 function player_can_move(checkX, checkY: smallint): boolean;

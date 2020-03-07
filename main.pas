@@ -49,7 +49,7 @@ begin
   (* Draw side panel *)
   ui.draw_sidepanel;
   (* spawn player *)
-  player.spawn_player;
+  player.spawn_player(map.startX, map.startY);
   repaintWindow;
   repaintPlayer;
 end;

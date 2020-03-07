@@ -25,7 +25,7 @@ var
   ThePlayer: Creature;
 
 (* Places the player on the map *)
-procedure spawn_player;
+procedure spawn_player(startX, startY: smallint);
 (* Moves the player on the map *)
 procedure move_player(dir: word);
 
@@ -34,7 +34,7 @@ implementation
 uses
   main, dungeon;
 
-procedure spawn_player;
+procedure spawn_player(startX, startY: smallint);
 begin
   (* Setup player stats *)
   with ThePlayer do
@@ -46,8 +46,8 @@ begin
     maxHP := 20;
     attack := 5;
     defense := 2;
-    posX := dungeon.startX;
-    posY := dungeon.startY;
+    posX := startX;
+    posY := startY;
   end;
   (* set scaling quality *)
   SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, 'nearest');
@@ -60,8 +60,8 @@ begin
   if PlayerTexture = nil then
     Halt;
   (* prepare rectangle *)
-  PlayerGlyph.x := dungeon.startX * map.tileSize;
-  PlayerGlyph.y := dungeon.startY * map.tileSize;
+  PlayerGlyph.x := startX * map.tileSize;
+  PlayerGlyph.y := startY * map.tileSize;
   PlayerGlyph.w := map.tileSize;
   PlayerGlyph.h := map.tileSize;
 end;
