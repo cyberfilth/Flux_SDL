@@ -66,12 +66,12 @@ begin
   if x1 < x2 then
   begin
     for x := x1 to x2 do
-      caveArray[y][x] := '.';
+      caveArray[y][x] := ':';
   end;
   if x1 > x2 then
   begin
     for x := x2 to x1 do
-      caveArray[y][x] := '.';
+      caveArray[y][x] := ':';
   end;
 end;
 
@@ -82,12 +82,12 @@ begin
   if y1 < y2 then
   begin
     for y := y1 to y2 do
-      caveArray[y][x] := '.';
+      caveArray[y][x] := ':';
   end;
   if y1 > y2 then
   begin
     for y := y2 to y1 do
-      caveArray[y][x] := '.';
+      caveArray[y][x] := ':';
   end;
 end;
 
@@ -180,7 +180,7 @@ begin
     for drawWidth := 0 to roomWidth do
     begin
       caveArray[(topLeftY + nudgeDown) + drawHeight][(topLeftX + nudgeAcross) +
-        drawWidth] := '.';
+        drawWidth] := ':';
     end;
   end;
 end;
@@ -207,7 +207,7 @@ begin
       if (Random(100) <= 50) then
         caveArray[r][c] := '#'
       else
-        caveArray[r][c] := '.';
+        caveArray[r][c] := ':';
     end;
   end;
   (* Run through the process 5 times *)
@@ -242,14 +242,14 @@ begin
           if (tileCounter >= 4) then
             tempArray[r][c] := '#'
           else
-            tempArray[r][c] := '.';
+            tempArray[r][c] := ':';
         end;
-        if (caveArray[r][c] = '.') then
+        if (caveArray[r][c] = ':') then
         begin
           if (tileCounter >= 5) then
             tempArray[r][c] := '#'
           else
-            tempArray[r][c] := '.';
+            tempArray[r][c] := ':';
         end;
       end;
     end;

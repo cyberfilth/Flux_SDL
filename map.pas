@@ -466,15 +466,27 @@ begin
   rockRect.x := mapToScreen(c);
   rockRect.y := mapToScreen(r);
   if (hiDef = 1) then
-    SDL_SetTextureColorMod(rockTexture, maparea[r][c].hiR,
-      maparea[r][c].hiG, maparea[r][c].hiB)
+    SDL_SetTextureColorMod(rockTexture, ORANGEhiR, ORANGEhiG, ORANGEhiB)
   else
-    SDL_SetTextureColorMod(rockTexture, maparea[r][c].defR,
-      maparea[r][c].defG, maparea[r][c].defB);
+    SDL_SetTextureColorMod(rockTexture, ORANGEdefR, ORANGEdefG, ORANGEdefB);
   SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
   SDL_RenderDrawRect(main.sdlRenderer, @rockRect);
   SDL_RenderCopy(main.sdlRenderer, rockTexture, @rockRect, nil);
   SDL_RenderCopy(sdlRenderer, rockTexture, nil, @rockRect);
+end;
+
+procedure drawRockFloor(c, r: smallint; hiDef: byte);
+begin
+  floorRect.x := mapToScreen(c);
+  floorRect.y := mapToScreen(r);
+  if (hiDef = 1) then
+    SDL_SetTextureColorMod(floorTexture, ORANGEhiR, ORANGEhiG, ORANGEhiB)
+  else
+    SDL_SetTextureColorMod(floorTexture, ORANGEdirtR, ORANGEdirtG, ORANGEdirtB);
+  SDL_SetRenderDrawBlendMode(main.sdlRenderer, SDL_BLENDMODE_BLEND);
+  SDL_RenderDrawRect(main.sdlRenderer, @floorRect);
+  SDL_RenderCopy(main.sdlRenderer, floorTexture, @floorRect, nil);
+  SDL_RenderCopy(sdlRenderer, floorTexture, nil, @floorRect);
 end;
 
 procedure drawA(c, r: smallint; hiDef: byte);
@@ -830,6 +842,7 @@ begin
     'O': drawO(c, r, hiDef);
     'P': drawP(c, r, hiDef);
     '#': drawRock(c, r, hiDef);
+    ':': drawRockFloor(c, r, hiDef);
     else
       drawRock(c, r, hiDef);
   end;
@@ -850,18 +863,15 @@ begin
     for c := 1 to globalutils.MAXCOLUMNS do
     begin
       Inc(id_int);
-      maparea[r][c].id := id_int;
-      maparea[r][c].blocks := True;
-      maparea[r][c].Visible := False;
-      maparea[r][c].discovered := False;
-      maparea[r][c].glyph := globalutils.dungeonArray[r][c];
-      maparea[r][c].hiR := 151;
-      maparea[r][c].hiG := 222;
-      maparea[r][c].hiB := 215;
-      maparea[r][c].defR := 120;
-      maparea[r][c].defG := 156;
-      maparea[r][c].defB := 155;
-      if globalutils.dungeonArray[r][c] = '.' then
+      with maparea[r][c] do
+      begin
+        id := id_int;
+        blocks := True;
+        Visible := False;
+        discovered := False;
+        glyph := globalutils.dungeonArray[r][c];
+      end;
+      if (globalutils.dungeonArray[r][c] = '.') or (globalutils.dungeonArray[r][c] = ':') then
         maparea[r][c].blocks := False;
     end;
   end;

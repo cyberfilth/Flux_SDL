@@ -14,6 +14,11 @@ const
   MAXCOLUMNS = 67;
   (* Rows of the game map *)
   MAXROWS = 38;
+  (* Colours - Highlight and default colours *)
+  // Orange
+  ORANGEhiR = 213; ORANGEhiG = 97; ORANGEhiB = 0;
+  ORANGEdefR = 174; ORANGEdefG = 79; ORANGEdefB = 0;
+  ORANGEdirtR = 132; ORANGEdirtG = 60; ORANGEdirtB = 0;
 
 var
   dungeonArray: array[1..MAXROWS, 1..MAXCOLUMNS] of char;
