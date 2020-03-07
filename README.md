@@ -1,7 +1,7 @@
 # FLUX (SDL Version)
 **F**ree pasca**L** rog**U**elike e**X**ample
 
-![Free Pascal](https://img.shields.io/badge/Free%20Pascal-v3.0.4-blue)      ![GitHub repo size](https://img.shields.io/github/repo-size/cyberfilth/FLUX_SDL)
+![Free Pascal](https://img.shields.io/badge/Free%20Pascal-v3.0.4-blue)      ![GitHub repo size](https://img.shields.io/github/repo-size/cyberfilth/Flux_SDL)
 
 FLUX is a small hobby project to create a basic roguelike, it builds on the terminal version at https://github.com/cyberfilth/FLUX/ and includes the following basic features;
 
@@ -13,7 +13,7 @@ FLUX is a small hobby project to create a basic roguelike, it builds on the term
 
 The code is released into the public domain, feel free to use it or modify it in any way you choose.
 
-![Public Domain](https://img.shields.io/github/license/cyberfilth/FLUX_SDL)
+![Public Domain](https://img.shields.io/github/license/cyberfilth/Flux_SDL)
 
 
 ## documentation
@@ -24,4 +24,4 @@ mkdir docs/
 pasdoc *.pas --output docs/
 ```
 
-![Stars](https://img.shields.io/github/stars/cyberfilth/FLUX_SDL)
+![Stars](https://img.shields.io/github/stars/cyberfilth/Flux_SDL)
