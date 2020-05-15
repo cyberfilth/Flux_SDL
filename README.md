@@ -1,7 +1,9 @@
 # FLUX (SDL Version)
 **F**ree pasca**L** rog**U**elike e**X**ample
 
-![Free Pascal](https://img.shields.io/badge/Free%20Pascal-v3.0.4-blue)     ![Lazarus IDE](https://img.shields.io/badge/Lazarus-V2.0.6-blue) 
+(All work on this project has moved to **Axes, Armour & Ale** https://github.com/cyberfilth/Axes-Armour-Ale)
+
+
 
 FLUX is a small hobby project to create a basic roguelike, it builds on the terminal version at https://github.com/cyberfilth/FLUX/ and includes the following basic features;
 
